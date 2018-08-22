@@ -1,0 +1,27 @@
+.orig x3000
+
+    ld r0,number0            # r0 = A
+    ld r1,number1            # r1 = B
+    
+    not r2,r0                # r2 = ~A
+    add r2,r2,#1             # r3 = ~B
+    
+    not r3,r1
+    add r3,r3,#1
+    
+    and r3,r3,r0
+    and r4,r4,r1
+    
+    not r3,r3
+    not r4,r4
+    
+    and r3,r3,r4
+    not r3
+    
+halt
+
+number1 .fill #123
+number2 .fill #234
+
+
+.end
